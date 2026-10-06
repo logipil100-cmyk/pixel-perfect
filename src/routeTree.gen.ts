@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AffiliatesRouteImport } from './routes/affiliates'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FeaturesRouteImport } from './routes/features'
@@ -25,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AffiliatesRoute = AffiliatesRouteImport.update({
+  id: '/affiliates',
+  path: '/affiliates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -60,6 +66,7 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/affiliates': typeof AffiliatesRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/features': typeof FeaturesRoute
@@ -69,6 +76,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/affiliates': typeof AffiliatesRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/features': typeof FeaturesRoute
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/affiliates': typeof AffiliatesRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/features': typeof FeaturesRoute
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/affiliates'
     | '/auth'
     | '/contact'
     | '/features'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/affiliates'
     | '/auth'
     | '/contact'
     | '/features'
@@ -110,6 +121,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/affiliates'
     | '/auth'
     | '/contact'
     | '/features'
@@ -121,6 +133,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AffiliatesRoute: typeof AffiliatesRoute
   AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
   FeaturesRoute: typeof FeaturesRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/affiliates': {
+      id: '/affiliates'
+      path: '/affiliates'
+      fullPath: '/affiliates'
+      preLoaderRoute: typeof AffiliatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -203,6 +223,7 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AffiliatesRoute: AffiliatesRoute,
   AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,
   FeaturesRoute: FeaturesRoute,
