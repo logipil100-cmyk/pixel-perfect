@@ -58,17 +58,17 @@ export function SiteFooter() {
     <footer className="py-10">
       <div className="max-w-6xl mx-auto px-4">
         <Logo />
-        <div className="mt-5 grid grid-cols-2 md:flex md:gap-8 gap-y-2 text-[12px] text-sage">
-          <Link to="/features">{t.nav.features}</Link>
-          <Link to="/pricing">{t.nav.pricing}</Link>
-          <Link to="/contact">{t.nav.contact}</Link>
-        </div>
-        <div className="mt-6 card-line rounded-[14px] p-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div className="mt-5 card-line rounded-[14px] p-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
             <p className="font-semibold text-[14px]">{lang === "pt" ? "Programa de afiliados" : "Affiliate program"}</p>
             <p className="text-[12px] text-sage">{lang === "pt" ? "Indique a ChatDesk AI e ganhe comissões." : "Refer ChatDesk AI and earn commissions."}</p>
           </div>
           <Link to="/auth" search={{ mode: "up", affiliate: true }} className="btn-ember text-[12px] text-center">{lang === "pt" ? "Criar conta de afiliado" : "Create affiliate account"}</Link>
+        </div>
+        <div className="mt-6 grid grid-cols-2 md:flex md:gap-8 gap-y-2 text-[12px] text-sage">
+          <Link to="/features">{t.nav.features}</Link>
+          <Link to="/pricing">{t.nav.pricing}</Link>
+          <Link to="/contact">{t.nav.contact}</Link>
         </div>
         <p className="mt-6 text-[11px] font-mono text-sage">© 2026 ChatDesk AI · suporte@chatdesk.ai</p>
       </div>

@@ -12,10 +12,10 @@ export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>): { mode?: Mode; affiliate?: boolean } => {
     const m = s["mode"];
     const a = s["affiliate"];
-    return {
-      mode: m === "up" || m === "forgot" ? m : undefined,
-      affiliate: a === "1" || a === 1 || a === true ? true : undefined,
-    };
+    const out: { mode?: Mode; affiliate?: boolean } = {};
+    if (m === "up" || m === "forgot") out.mode = m;
+    if (a === "1" || a === 1 || a === true) out.affiliate = true;
+    return out;
   },
   head: () => ({
     meta: [
