@@ -91,6 +91,13 @@ function Dashboard() {
           ))}
         </div>
 
+        {affiliate && (
+          <>
+            <h2 className="mt-10 font-semibold">{pt ? "Gerador de textos promocionais" : "Promo text generator"}</h2>
+            <PromoGenerator />
+          </>
+        )}
+
         <h2 className="mt-10 font-semibold">{pt ? "Perfil" : "Profile"}</h2>
         <form onSubmit={save} className="mt-3 card-line rounded-[14px] p-5 max-w-md space-y-3">
           <label className="block text-[12px] text-sage">Email<input disabled value={user.email ?? ""} className={`${input} mt-1 opacity-70`} /></label>
