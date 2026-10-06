@@ -63,7 +63,7 @@ export function SiteFooter() {
             <p className="font-semibold text-[14px]">{lang === "pt" ? "Programa de afiliados" : "Affiliate program"}</p>
             <p className="text-[12px] text-sage">{lang === "pt" ? "Indique a ChatDesk AI e ganhe comissões." : "Refer ChatDesk AI and earn commissions."}</p>
           </div>
-          <Link to="/auth" search={{ mode: "up", affiliate: true }} className="btn-ember text-[12px] text-center">{lang === "pt" ? "Criar conta de afiliado" : "Create affiliate account"}</Link>
+          <Link to="/affiliates" className="btn-ember text-[12px] text-center">{lang === "pt" ? "Criar conta de afiliado" : "Create affiliate account"}</Link>
         </div>
         <div className="mt-6 grid grid-cols-2 md:flex md:gap-8 gap-y-2 text-[12px] text-sage">
           <Link to="/features">{t.nav.features}</Link>
