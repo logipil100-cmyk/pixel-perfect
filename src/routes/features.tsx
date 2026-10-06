@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
-import { DemoInbox, Integrations } from "./index";
+import { DemoInbox, Integrations } from "@/components/site";
 
 export const Route = createFileRoute("/features")({
   head: () => ({

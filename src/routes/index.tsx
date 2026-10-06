@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
-import { Pricing } from "@/components/site";
+import { Pricing, DemoInbox, Integrations } from "@/components/site";
 import marina from "@/assets/marina.jpg";
 
 export const Route = createFileRoute("/")({
@@ -105,42 +105,3 @@ function Index() {
   );
 }
 
-export function DemoInbox() {
-  const { t } = useT();
-  return (
-    <div className="bg-paper text-ink rounded-2xl shadow-[0_0_0_1px_var(--border),0_20px_50px_-20px_var(--ink)] p-3 md:p-5">
-      <div className="flex items-center justify-between border-b pb-2 mb-3">
-        <span className="text-[11px] font-semibold">{t.demo.ch}</span>
-        <span className="text-[10px] font-mono text-sage">online</span>
-      </div>
-      <div className="space-y-2 text-[12px] md:text-sm">
-        <div className="bg-muted rounded-lg rounded-tl-sm px-3 py-2 max-w-[80%]">{t.demo.m1}</div>
-        <div className="bg-accent shadow-[0_0_0_1px_var(--accent)] rounded-lg rounded-tr-sm px-3 py-2 max-w-[85%] ml-auto">{t.demo.m2}</div>
-        <div className="bg-muted rounded-lg rounded-tl-sm px-3 py-2 max-w-[70%]">{t.demo.m3}</div>
-        <div className="bg-accent rounded-lg rounded-tr-sm px-3 py-2 w-fit ml-auto flex items-center gap-1.5">{t.demo.m4} <span className="cd-blink text-ember">▍</span></div>
-      </div>
-      <div className="mt-3 pt-2 border-t flex items-center justify-between">
-        <span className="text-[10px] font-mono text-sage">{t.demo.foot}</span>
-        <span className="text-[10px] font-mono text-ember">{t.demo.ai}</span>
-      </div>
-    </div>
-  );
-}
-
-export function Integrations() {
-  const { t } = useT();
-  return (
-    <section className="bg-ink text-paper py-10 md:py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <p className="eyebrow mb-4">{t.integ.label}</p>
-        <div className="grid grid-cols-3 gap-2.5">
-          {t.integ.items.map(([h, p]) => (
-            <div key={h} className="bg-paper/5 shadow-[0_0_0_1px_oklch(1_0_0/10%)] rounded-[12px] p-3 md:p-6 text-center">
-              <p className="font-semibold text-xs md:text-base">{h}</p><p className="text-[10px] md:text-xs text-sage mt-1">{p}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
