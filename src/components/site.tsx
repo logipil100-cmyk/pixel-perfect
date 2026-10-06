@@ -34,7 +34,10 @@ export function SiteHeader() {
             ))}
           </div>
           {user ? (
-            <button onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/", replace: true }); }} title={user.email ?? ""} className="bg-ink text-paper text-[11px] font-semibold px-3 py-1.5 rounded-full">{lang === "pt" ? "Sair" : "Log out"}</button>
+            <>
+              <Link to="/dashboard" className="bg-ink text-paper text-[11px] font-semibold px-3 py-1.5 rounded-full">{lang === "pt" ? "Painel" : "Dashboard"}</Link>
+              <button onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/", replace: true }); }} title={user.email ?? ""} className="text-[11px] text-sage px-1">{lang === "pt" ? "Sair" : "Log out"}</button>
+            </>
           ) : (
             <Link to="/auth" className="bg-ink text-paper text-[11px] font-semibold px-3 py-1.5 rounded-full">{t.nav.login}</Link>
           )}
@@ -50,7 +53,7 @@ export function SiteHeader() {
 }
 
 export function SiteFooter() {
-  const { t } = useT();
+  const { t, lang } = useT();
   return (
     <footer className="py-10">
       <div className="max-w-6xl mx-auto px-4">
@@ -59,6 +62,13 @@ export function SiteFooter() {
           <Link to="/features">{t.nav.features}</Link>
           <Link to="/pricing">{t.nav.pricing}</Link>
           <Link to="/contact">{t.nav.contact}</Link>
+        </div>
+        <div className="mt-6 card-line rounded-[14px] p-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold text-[14px]">{lang === "pt" ? "Programa de afiliados" : "Affiliate program"}</p>
+            <p className="text-[12px] text-sage">{lang === "pt" ? "Indique a ChatDesk AI e ganhe comissões." : "Refer ChatDesk AI and earn commissions."}</p>
+          </div>
+          <Link to="/auth" search={{ mode: "up", affiliate: true }} className="btn-ember text-[12px] text-center">{lang === "pt" ? "Criar conta de afiliado" : "Create affiliate account"}</Link>
         </div>
         <p className="mt-6 text-[11px] font-mono text-sage">© 2026 ChatDesk AI · suporte@chatdesk.ai</p>
       </div>
