@@ -1,6 +1,8 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useT } from "@/lib/i18n";
+import { supabase } from "@/integrations/supabase/client";
+import { useSessionUser } from "@/hooks/use-session";
 
 export function Logo() {
   return (
@@ -13,7 +15,8 @@ export function Logo() {
 
 export function SiteHeader() {
   const { t, lang, setLang } = useT();
-  const [msg, setMsg] = useState(false);
+  const user = useSessionUser();
+  const navigate = useNavigate();
   const link = "text-sm text-sage hover:text-ink transition-colors";
   return (
     <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur shadow-[0_1px_0_var(--border)]">
@@ -30,7 +33,11 @@ export function SiteHeader() {
               <button key={l} onClick={() => setLang(l)} className={`px-2.5 py-1 uppercase ${lang === l ? "bg-ink text-paper" : "text-sage"}`}>{l}</button>
             ))}
           </div>
-          <button onClick={() => { setMsg(true); setTimeout(() => setMsg(false), 2500); }} className="bg-ink text-paper text-[11px] font-semibold px-3 py-1.5 rounded-full">{t.nav.login}</button>
+          {user ? (
+            <button onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/", replace: true }); }} title={user.email ?? ""} className="bg-ink text-paper text-[11px] font-semibold px-3 py-1.5 rounded-full">{lang === "pt" ? "Sair" : "Log out"}</button>
+          ) : (
+            <Link to="/auth" className="bg-ink text-paper text-[11px] font-semibold px-3 py-1.5 rounded-full">{t.nav.login}</Link>
+          )}
         </div>
       </div>
       <nav className="md:hidden flex gap-5 px-4 pb-2 text-xs">
@@ -38,7 +45,6 @@ export function SiteHeader() {
         <Link to="/pricing" className={link}>{t.nav.pricing}</Link>
         <Link to="/contact" className={link}>{t.nav.contact}</Link>
       </nav>
-      {msg && <div className="absolute right-4 top-16 bg-ink text-paper text-xs px-3 py-2 rounded-lg">{t.soon}</div>}
     </header>
   );
 }
