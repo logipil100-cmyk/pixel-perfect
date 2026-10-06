@@ -45,7 +45,6 @@ export function SiteHeader() {
         <Link to="/pricing" className={link}>{t.nav.pricing}</Link>
         <Link to="/contact" className={link}>{t.nav.contact}</Link>
       </nav>
-      {msg && <div className="absolute right-4 top-16 bg-ink text-paper text-xs px-3 py-2 rounded-lg">{t.soon}</div>}
     </header>
   );
 }
