@@ -9,10 +9,14 @@ import { useSessionUser } from "@/hooks/use-session";
 type Mode = "in" | "up" | "forgot";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (s: Record<string, unknown>) => ({
-    mode: (s.mode === "up" || s.mode === "forgot" ? s.mode : undefined) as Mode | undefined,
-    affiliate: s.affiliate === "1" || s.affiliate === 1 || s.affiliate === true ? true : undefined,
-  }),
+  validateSearch: (s: Record<string, unknown>): { mode?: Mode; affiliate?: boolean } => {
+    const m = s["mode"];
+    const a = s["affiliate"];
+    return {
+      mode: m === "up" || m === "forgot" ? m : undefined,
+      affiliate: a === "1" || a === 1 || a === true ? true : undefined,
+    };
+  },
   head: () => ({
     meta: [
       { title: "Entrar — ChatDesk AI" },
