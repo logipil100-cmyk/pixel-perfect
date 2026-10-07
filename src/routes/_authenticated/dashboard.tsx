@@ -3,6 +3,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { useT } from "@/lib/i18n";
+import { PromoGenerator } from "@/components/promo-generator";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
