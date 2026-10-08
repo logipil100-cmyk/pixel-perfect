@@ -3,6 +3,29 @@ import { useState } from "react";
 import { useT } from "@/lib/i18n";
 import { supabase } from "@/integrations/supabase/client";
 import { useSessionUser } from "@/hooks/use-session";
+import { SECTORS } from "@/lib/sectors";
+import { openDemoChat } from "@/components/chat-widget";
+
+export function SectorCards() {
+  const { t, lang } = useT();
+  return (
+    <section className="py-12 md:py-20">
+      <div className="max-w-6xl mx-auto px-4">
+        <p className="eyebrow mb-4">{t.sectors.label}</p>
+        <h2 className="font-display font-bold text-[1.7rem] md:text-4xl leading-tight">{t.sectors.title}</h2>
+        <div className="mt-6 grid md:grid-cols-3 gap-3">
+          {SECTORS.map((s) => (
+            <Link key={s.slug} to="/solucoes/$sector" params={{ sector: s.slug }} className="card-line p-5 flex flex-col gap-2 transition-shadow hover:shadow-[0_0_0_1px_var(--ember)]">
+              <p className="font-semibold">{s.copy[lang].name}</p>
+              <p className="text-[13px] text-sage flex-1">{s.copy[lang].title}</p>
+              <span className="text-[12px] font-semibold text-ember">{t.sectors.more} {"→"}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function Logo() {
   return (
@@ -69,6 +92,11 @@ export function SiteFooter() {
           <Link to="/features">{t.nav.features}</Link>
           <Link to="/pricing">{t.nav.pricing}</Link>
           <Link to="/contact">{t.nav.contact}</Link>
+          {SECTORS.map((s) => (
+            <Link key={s.slug} to="/solucoes/$sector" params={{ sector: s.slug }}>{s.copy[lang].name}</Link>
+          ))}
+          <Link to="/privacy">{t.legal.privacy}</Link>
+          <Link to="/terms">{t.legal.terms}</Link>
         </div>
         <p className="mt-6 text-[11px] font-mono text-sage">{lang === "pt" ? "© 2026 Klyntia. Todos os direitos reservados." : "© 2026 Klyntia. All rights reserved."}</p>
         <a href="mailto:support@klyntia.com" className="mt-2 inline-block text-[12px] text-sage">support@klyntia.com</a>
@@ -84,6 +112,7 @@ export function Pricing() {
     <section className="py-12">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="font-display font-bold text-[1.7rem] md:text-4xl leading-tight">{t.price.title}</h2>
+        <p className="mt-2 text-[13px] text-sage">{t.price.note}</p>
         <div className="mt-4 flex items-center gap-2 text-[11px] font-mono">
           <button onClick={() => setYearly(false)} className={`px-3 py-1.5 rounded-full ${!yearly ? "bg-ink text-paper" : "shadow-[0_0_0_1px_var(--input)] text-sage"}`}>{t.price.monthly}</button>
           <button onClick={() => setYearly(true)} className={`px-3 py-1.5 rounded-full ${yearly ? "bg-ink text-paper" : "shadow-[0_0_0_1px_var(--input)] text-sage"}`}>{t.price.yearly}</button>
@@ -95,16 +124,21 @@ export function Pricing() {
             return (
               <div key={name} className={`relative rounded-[14px] p-5 ${pop ? "bg-ink text-paper" : "card-line"}`}>
                 {pop && <span className="absolute -top-2 left-4 bg-ember text-paper text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">{t.price.popular}</span>}
-                <div className="flex items-center justify-between"><p className="font-semibold">{name}</p><p className="font-mono">${price}<span className="text-sage text-[11px]">{t.price.per}</span></p></div>
+                <div className="flex items-center justify-between"><p className="font-semibold">{name}</p><p className="font-mono">{price} €<span className="text-sage text-[11px]">{t.price.per}</span></p></div>
                 <p className="text-[12px] text-sage mt-1">{desc}</p>
                 <ul className="mt-4 space-y-1.5 text-[13px]">
                   {feats.map((f) => <li key={f} className="flex gap-2"><span className="text-ember">—</span>{f}</li>)}
                 </ul>
-                <Link to="/contact" className={`mt-5 block ${pop ? "btn-ember" : "btn-line"}`}>{i === 2 ? t.price.sales : `${t.price.choose} ${name}`}</Link>
+                {i === 2 ? (
+                  <Link to="/contact" className="mt-5 block btn-line">{t.price.sales}</Link>
+                ) : (
+                  <Link to="/auth" search={{ mode: "up" }} className={`mt-5 block ${pop ? "btn-ember" : "btn-line"}`}>{`${t.price.choose} ${name}`}</Link>
+                )}
               </div>
             );
           })}
         </div>
+        <p className="mt-4 text-[11px] font-mono text-sage">{t.price.vat}</p>
       </div>
     </section>
   );
@@ -128,6 +162,7 @@ export function DemoInbox() {
         <span className="text-[10px] font-mono text-sage">{t.demo.foot}</span>
         <span className="text-[10px] font-mono text-ember">{t.demo.ai}</span>
       </div>
+      <button onClick={openDemoChat} className="mt-3 w-full btn-ink text-[12px] py-2">{t.demo.live}</button>
     </div>
   );
 }

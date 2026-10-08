@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LangProvider } from "@/lib/i18n";
 import { SiteHeader, SiteFooter } from "@/components/site";
+import { ChatWidget } from "@/components/chat-widget";
+import { CookieBanner } from "@/components/cookie-banner";
 
 function NotFoundComponent() {
   return (
@@ -82,6 +84,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Klyntia AI — Atendimento ao cliente com inteligência artificial" },
       { name: "description", content: "Klyntia AI combina inteligência artificial e equipas humanas para um atendimento mais ágil, pessoal e consistente." },
+      { name: "theme-color", content: "#f3f1ea" },
+      { property: "og:site_name", content: "Klyntia AI" },
+      { property: "og:image", content: "/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:image", content: "/og-image.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -121,6 +129,8 @@ function RootComponent() {
         <SiteHeader />
         <main><Outlet /></main>
         <SiteFooter />
+        <ChatWidget />
+        <CookieBanner />
       </LangProvider>
     </QueryClientProvider>
   );
