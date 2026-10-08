@@ -9,7 +9,7 @@ export const Route = createFileRoute("/affiliates")({
   head: () => ({
     meta: [
       { title: "Programa de afiliados — Klyntia AI" },
-      { name: "description", content: "Torne-se afiliado da Klyntia AI: indique clientes e ganhe comissões recorrentes." },
+      { name: "description", content: "Torne-se afiliado da Klyntia AI: ganhe na primeira assinatura e a cada 3 meses com o cliente ativo." },
       { property: "og:title", content: "Programa de afiliados — Klyntia AI" },
       { property: "og:description", content: "Indique a Klyntia AI e ganhe comissões. Cadastro gratuito." },
       { property: "og:type", content: "website" },
@@ -60,8 +60,8 @@ function AffiliatesPage() {
   }
 
   const perks = pt
-    ? [["Comissão recorrente", "Ganhe enquanto o cliente indicado mantiver a assinatura."], ["Link exclusivo", "Partilhe o seu link nas redes, blog ou com clientes."], ["Painel próprio", "Acompanhe a sua conta no painel da Klyntia AI."]]
-    : [["Recurring commission", "Earn while your referred customer stays subscribed."], ["Unique link", "Share it on social, your blog or with clients."], ["Own dashboard", "Track your account in the Klyntia AI dashboard."]];
+    ? [["Comissão garantida", "Ganhe na primeira assinatura do cliente indicado e volte a ganhar a cada 3 meses em que ele se mantiver ativo."], ["Link exclusivo", "Partilhe o seu link nas redes, blog ou com clientes."], ["Painel próprio", "Acompanhe a sua conta no painel da Klyntia AI."]]
+    : [["Guaranteed commission", "Earn on your referred customer's first subscription, and earn again every 3 months they stay active."], ["Unique link", "Share it on social, your blog or with clients."], ["Own dashboard", "Track your account in the Klyntia AI dashboard."]];
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-10">

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
-import { Pricing, DemoInbox, Integrations } from "@/components/site";
-import marina from "@/assets/marina.jpg";
+import { Pricing, DemoInbox, Integrations, SectorCards } from "@/components/site";
+import { openDemoChat } from "@/components/chat-widget";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,8 +31,8 @@ function Index() {
             </h1>
             <p className="mt-6 text-[15px] md:text-lg text-sage leading-relaxed max-w-[34ch]">{t.hero.sub}</p>
             <div className="mt-7 flex flex-col sm:flex-row gap-2.5">
-              <Link to="/pricing" className="btn-ember">{t.hero.cta}</Link>
-              <Link to="/features" className="btn-line">{t.hero.demo}</Link>
+              <Link to="/auth" search={{ mode: "up" }} className="btn-ember">{t.hero.cta}</Link>
+              <button onClick={openDemoChat} className="btn-line">{t.hero.demo}</button>
             </div>
             <div className="mt-7 flex items-center gap-4 text-[11px] font-mono text-sage">
               <span className="flex items-center gap-1.5"><span className="size-1.5 rounded-full bg-ember" />{t.hero.stat1}</span>
@@ -52,6 +52,21 @@ function Index() {
 
       <section className="py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-display font-bold text-[1.7rem] md:text-4xl leading-tight">{t.how.title}</h2>
+          <ol className="mt-6 grid md:grid-cols-3 gap-3">
+            {t.how.items.map(([h, p], i) => (
+              <li key={h} className="card-line p-5">
+                <span className="font-display font-extrabold text-3xl text-ember">{i + 1}</span>
+                <p className="font-semibold mt-2">{h}</p>
+                <p className="text-[13px] text-sage mt-1">{p}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-20">
+        <div className="max-w-6xl mx-auto px-4">
           <h2 className="font-display font-bold text-[1.7rem] md:text-4xl leading-tight">{t.feat.title}</h2>
           <div className="mt-6 grid md:grid-cols-3 gap-3">
             {t.feat.items.map(([h, p], i) => (
@@ -65,16 +80,27 @@ function Index() {
       </section>
 
       <Integrations />
+      <SectorCards />
       <Pricing />
 
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="font-display font-bold text-[1.7rem] md:text-4xl leading-tight">{t.testi.title}</h2>
-          <div className="mt-6 card-line p-5 md:p-8 max-w-2xl">
-            <p className="text-[15px] md:text-xl leading-relaxed">{t.testi.quote}</p>
-            <div className="mt-4 flex items-center gap-3">
-              <img src={marina} alt="Marina Alves" width={816} height={816} loading="lazy" className="size-10 rounded-full object-cover" />
-              <div><p className="font-semibold text-xs">Marina Alves</p><p className="text-[11px] text-sage">{t.testi.role}</p></div>
+          <div className="card-line p-6 md:p-10 md:grid md:grid-cols-2 md:gap-10 md:items-center">
+            <div>
+              <p className="eyebrow mb-4">{t.launch.label}</p>
+              <h2 className="font-display font-bold text-[1.7rem] md:text-4xl leading-tight">{t.launch.title}</h2>
+              <p className="mt-3 text-[14px] text-sage leading-relaxed">{t.launch.sub}</p>
+            </div>
+            <div className="mt-6 md:mt-0">
+              <ul className="space-y-3">
+                {t.launch.perks.map((p) => (
+                  <li key={p} className="flex gap-3 text-[14px]">
+                    <span className="text-ember font-bold" aria-hidden="true">{"✓"}</span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contact" className="mt-6 inline-flex btn-ember">{t.launch.cta}</Link>
             </div>
           </div>
         </div>
@@ -97,10 +123,9 @@ function Index() {
       <section className="bg-ember text-paper py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="font-display font-extrabold text-[2.2rem] md:text-6xl leading-[0.95]">{t.cta.a}<br />{t.cta.b}</h2>
-          <Link to="/pricing" className="mt-6 inline-flex btn-ink">{t.cta.btn}</Link>
+          <Link to="/auth" search={{ mode: "up" }} className="mt-6 inline-flex btn-ink">{t.cta.btn}</Link>
         </div>
       </section>
     </>
   );
 }
-
