@@ -2,16 +2,16 @@
 
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import { getSalesContactHref } from "@/components/chatdesk-copy"
-import type { ChatDeskCopy, Locale } from "@/components/chatdesk-copy"
+import { getSalesContactHref } from "@/components/klyntia-copy"
+import type { KlyntiaCopy, Locale } from "@/components/klyntia-copy"
 
-interface ChatDeskHeaderProps {
-  copy: ChatDeskCopy
+interface KlyntiaHeaderProps {
+  copy: KlyntiaCopy
   locale: Locale
   onLocaleChange: (locale: Locale) => void
 }
 
-export function ChatDeskHeader({ copy, locale, onLocaleChange }: ChatDeskHeaderProps) {
+export function KlyntiaHeader({ copy, locale, onLocaleChange }: KlyntiaHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const contactHref = getSalesContactHref(locale)
 
@@ -24,7 +24,7 @@ export function ChatDeskHeader({ copy, locale, onLocaleChange }: ChatDeskHeaderP
       <div className="site-container header-inner">
         <a className="brand" href="#inicio" aria-label={copy.header.homeLabel}>
           <span className="brand-mark" aria-hidden="true" />
-          <span className="brand-name">ChatDesk<span className="brand-ai">AI</span></span>
+          <span className="brand-name">Klyntia<span className="brand-ai">AI</span></span>
         </a>
 
         <nav

@@ -6,10 +6,10 @@ import marina from "@/assets/marina.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ChatDesk AI — Atendimento, CRM e vendas com IA 24/7" },
-      { name: "description", content: "Agentes de IA que atendem no WhatsApp, Instagram e site, preenchem o CRM e fecham vendas sozinhos." },
-      { property: "og:title", content: "ChatDesk AI — Atendimento com IA 24/7" },
-      { property: "og:description", content: "Agentes de IA para suporte, CRM e automação de vendas." },
+      { title: "Klyntia AI — Atendimento ao cliente com inteligência artificial" },
+      { name: "description", content: "Klyntia AI combina inteligência artificial e atendimento humano para organizar conversas e apoiar a sua equipa no WhatsApp, Instagram e site." },
+      { property: "og:title", content: "Klyntia AI — Atendimento ao cliente com inteligência artificial" },
+      { property: "og:description", content: "Klyntia AI: inteligência artificial e equipas humanas, juntas num atendimento mais ágil e pessoal." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -22,13 +22,12 @@ function Index() {
   return (
     <>
       <section className="overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 pt-10 pb-14 md:pt-20 md:pb-24 md:grid md:grid-cols-2 md:gap-12 md:items-center">
+        <div className="max-w-6xl mx-auto px-4 pt-10 pb-14 md:pt-20 md:pb-16 md:grid md:grid-cols-2 md:gap-12 md:items-center">
           <div>
             <p className="eyebrow mb-5">{t.hero.eyebrow}</p>
-            <h1 className="font-display font-extrabold leading-[0.9] text-[3.4rem] md:text-[5.5rem] -ml-[2px]">
-              <span className="cd-slide">{t.hero.a}</span><br />
-              <span className="text-ember">24/7</span><br />
-              <span className="cd-slide" style={{ animationDelay: ".12s" }}>{t.hero.b}</span>
+            <h1 className="font-display font-extrabold leading-tight text-[2.5rem] md:text-[4rem]">
+              <span className="klyntia-slide text-ember">Klyntia AI</span>
+              <span className="block mt-3 text-[1.75rem] md:text-[2.75rem] leading-tight">{t.hero.a} {t.hero.b}</span>
             </h1>
             <p className="mt-6 text-[15px] md:text-lg text-sage leading-relaxed max-w-[34ch]">{t.hero.sub}</p>
             <div className="mt-7 flex flex-col sm:flex-row gap-2.5">

@@ -300,14 +300,13 @@ summary:focus-visible {
   height: 36px;
   flex: 0 0 auto;
   border: 1px solid rgb(243 90 52 / 18%);
-  border-radius: 50%;
-  background-color: #fff;
-  background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1791316942044-s2tnDdSSPbV2gQhm4g8JKEaC3VmLAn.jpg");
-  background-position: 50% 29%;
+  border-radius: 8px;
+  background-color: var(--orange);
+  background-image: url("/icon.svg");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 123px 70px;
+  background-size: contain;
   box-shadow: 0 3px 10px rgb(37 34 27 / 12%);
-  filter: grayscale(1) sepia(1) saturate(4) hue-rotate(335deg);
 }
 
 .brand-name {
@@ -541,7 +540,16 @@ summary:focus-visible {
 
 .hero-motion-word {
   display: block;
-  animation: hero-word-motion 2.8s ease-in-out infinite;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.hero-motion-word:first-child {
+  font-size: 52px;
+  color: var(--orange);
+  margin-bottom: 12px;
 }
 
 .hero-motion-word:nth-child(2) {
@@ -1761,7 +1769,7 @@ summary:focus-visible {
 .footer-brand .brand-mark {
   width: 27px;
   height: 27px;
-  background-size: 93px 53px;
+  background-size: contain;
 }
 
 .footer-brand .brand-name {

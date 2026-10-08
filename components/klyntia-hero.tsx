@@ -1,7 +1,7 @@
 import { ArrowDownRight, ArrowRight, Check, MessageCircle, Sparkles } from "lucide-react"
-import type { ChatDeskCopy } from "@/components/chatdesk-copy"
+import type { KlyntiaCopy } from "@/components/klyntia-copy"
 
-export function ChatDeskHero({ copy }: { copy: ChatDeskCopy }) {
+export function KlyntiaHero({ copy }: { copy: KlyntiaCopy }) {
   return (
     <section className="hero-section" id="inicio">
       <div className="site-container hero-layout">
@@ -74,7 +74,7 @@ export function ChatDeskHero({ copy }: { copy: ChatDeskCopy }) {
               <div className="chat-bubble customer-bubble">{copy.hero.customerMessage}</div>
               <div className="assistant-response">
                 <span className="assistant-label">
-                  <Sparkles aria-hidden="true" /> ChatDesk AI
+                  <Sparkles aria-hidden="true" /> Klyntia AI
                 </span>
                 <div className="chat-bubble assistant-bubble">{copy.hero.assistantMessage}</div>
               </div>

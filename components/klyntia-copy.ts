@@ -1,8 +1,8 @@
 export type Locale = "en" | "pt"
 
-export const CHATDESK_SUPPORT_EMAIL = "support@chatdesk.ai"
+export const KLYNTIA_SUPPORT_EMAIL = "support@klyntia.com"
 
-export const chatdeskCopy = {
+export const klyntiaCopy = {
   en: {
     header: {
       links: [
@@ -12,7 +12,7 @@ export const chatdeskCopy = {
         { href: "#planos", label: "Plans" },
         { href: "#faq", label: "FAQs" },
       ],
-      homeLabel: "ChatDesk AI home",
+      homeLabel: "Klyntia AI home",
       navigationLabel: "Main navigation",
       languageLabel: "Select language",
       contact: "Contact us",
@@ -21,14 +21,14 @@ export const chatdeskCopy = {
     },
     hero: {
       eyebrow: "CUSTOMER SUPPORT, WITH AI IN MIND",
-      titleWords: ["Always", "on", "24/7."],
+      titleWords: ["Klyntia AI", "Customer support with", "artificial intelligence."],
       description:
         "Organize conversations, automate repetitive replies and bring your team in when a person makes the difference.",
       primaryCta: "Talk to our team",
       secondaryCta: "How it works",
-      highlightsLabel: "ChatDesk AI principles",
+      highlightsLabel: "Klyntia AI principles",
       highlights: ["AI-assisted replies", "Conversation context", "Human handoff"],
-      demoLabel: "Illustrative ChatDesk AI conversation, not a live inbox",
+      demoLabel: "Illustrative Klyntia AI conversation, not a live inbox",
       chatTitle: "Support preview",
       chatChannel: "Example conversation",
       previewStatus: "Illustration",
@@ -104,7 +104,7 @@ export const chatdeskCopy = {
       eyebrow: "PLANS AND AVAILABILITY",
       heading: "Find the right setup for your team.",
       description:
-        "Get in touch to discuss current plans, pricing and whether ChatDesk AI fits your workflow.",
+        "Get in touch to discuss current plans, pricing and whether Klyntia AI fits your workflow.",
       contactCta: "Ask about plans",
       contactNote: "Opens an email draft. This page does not create an account or start a subscription.",
     },
@@ -141,11 +141,11 @@ export const chatdeskCopy = {
       reassurance: "Opens an email draft. No account is created here.",
     },
     footer: {
-      affiliateTitle: "Grow with ChatDesk AI.",
+      affiliateTitle: "Grow with Klyntia AI.",
       affiliateDescription: "Contact us to learn about the affiliate program.",
       affiliateCta: "Become an affiliate",
       footerNote: "AI-assisted customer conversations, shaped around people.",
-      email: CHATDESK_SUPPORT_EMAIL,
+      email: KLYNTIA_SUPPORT_EMAIL,
       copyright: "All rights reserved.",
       featuresLink: "Features",
       plansLink: "Plans",
@@ -161,7 +161,7 @@ export const chatdeskCopy = {
         { href: "#planos", label: "Planos" },
         { href: "#faq", label: "Perguntas" },
       ],
-      homeLabel: "Página inicial ChatDesk AI",
+      homeLabel: "Página inicial Klyntia AI",
       navigationLabel: "Navegação principal",
       languageLabel: "Selecionar idioma",
       contact: "Falar connosco",
@@ -170,14 +170,14 @@ export const chatdeskCopy = {
     },
     hero: {
       eyebrow: "ATENDIMENTO AO CLIENTE COM IA",
-      titleWords: ["Atenda", "24/7", "sem pausa."],
+      titleWords: ["Klyntia AI", "Atendimento ao cliente com", "inteligência artificial."],
       description:
         "Organize conversas, automatize respostas repetitivas e envolva a sua equipa quando uma pessoa faz a diferença.",
       primaryCta: "Falar com a equipa",
       secondaryCta: "Como funciona",
-      highlightsLabel: "Princípios do ChatDesk AI",
+      highlightsLabel: "Princípios do Klyntia AI",
       highlights: ["Respostas com apoio de IA", "Contexto da conversa", "Passagem para pessoas"],
-      demoLabel: "Exemplo ilustrativo do ChatDesk AI, não é uma caixa de entrada ativa",
+      demoLabel: "Exemplo ilustrativo do Klyntia AI, não é uma caixa de entrada ativa",
       chatTitle: "Pré-visualização do atendimento",
       chatChannel: "Conversa de exemplo",
       previewStatus: "Ilustração",
@@ -253,7 +253,7 @@ export const chatdeskCopy = {
       eyebrow: "PLANOS E DISPONIBILIDADE",
       heading: "Encontre a configuração certa para a sua equipa.",
       description:
-        "Fale connosco para conhecer os planos, preços e perceber se o ChatDesk AI se adequa ao seu fluxo de trabalho.",
+        "Fale connosco para conhecer os planos, preços e perceber se o Klyntia AI se adequa ao seu fluxo de trabalho.",
       contactCta: "Pedir informações",
       contactNote: "Abre um rascunho de e-mail. Esta página não cria uma conta nem inicia uma subscrição.",
     },
@@ -290,11 +290,11 @@ export const chatdeskCopy = {
       reassurance: "Abre um rascunho de e-mail. Não é criada nenhuma conta aqui.",
     },
     footer: {
-      affiliateTitle: "Cresça com o ChatDesk AI.",
+      affiliateTitle: "Cresça com o Klyntia AI.",
       affiliateDescription: "Fale connosco para saber mais sobre o programa de afiliados.",
       affiliateCta: "Torne-se afiliado",
       footerNote: "Conversas com apoio de IA, pensadas para pessoas.",
-      email: CHATDESK_SUPPORT_EMAIL,
+      email: KLYNTIA_SUPPORT_EMAIL,
       copyright: "Todos os direitos reservados.",
       featuresLink: "Funcionalidades",
       plansLink: "Planos",
@@ -303,23 +303,23 @@ export const chatdeskCopy = {
   },
 } as const
 
-export type ChatDeskCopy = (typeof chatdeskCopy)[Locale]
+export type KlyntiaCopy = (typeof klyntiaCopy)[Locale]
 
-export function getChatDeskCopy(locale: Locale): ChatDeskCopy {
-  return chatdeskCopy[locale]
+export function getKlyntiaCopy(locale: Locale): KlyntiaCopy {
+  return klyntiaCopy[locale]
 }
 
 export function getSalesContactHref(locale: Locale) {
-  const subject = locale === "pt" ? "Informações sobre o ChatDesk AI" : "ChatDesk AI information request"
-  return `mailto:${CHATDESK_SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}`
+  const subject = locale === "pt" ? "Informações sobre o Klyntia AI" : "Klyntia AI information request"
+  return `mailto:${KLYNTIA_SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}`
 }
 
 export function getAffiliateContactHref(locale: Locale) {
-  const subject = locale === "pt" ? "Programa de afiliados do ChatDesk AI" : "ChatDesk AI affiliate program"
-  return `mailto:${CHATDESK_SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}`
+  const subject = locale === "pt" ? "Programa de afiliados do Klyntia AI" : "Klyntia AI affiliate program"
+  return `mailto:${KLYNTIA_SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}`
 }
 
 export function getContactHref(locale: Locale) {
-  const subject = locale === "pt" ? "Questão sobre o ChatDesk AI" : "Question about ChatDesk AI"
-  return `mailto:${CHATDESK_SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}`
+  const subject = locale === "pt" ? "Questão sobre o Klyntia AI" : "Question about Klyntia AI"
+  return `mailto:${KLYNTIA_SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}`
 }

@@ -1,10 +1,10 @@
 import { ArrowUpRight, AtSign, Bot, Mail, MessageCircle, Globe2, TrendingUp, UserRoundCog } from "lucide-react"
-import type { ChatDeskCopy } from "@/components/chatdesk-copy"
+import type { KlyntiaCopy } from "@/components/klyntia-copy"
 
 const featureIcons = [Bot, UserRoundCog, TrendingUp]
 const channelIcons = [MessageCircle, AtSign, Globe2, Mail]
 
-export function ChatDeskFeatures({ copy }: { copy: ChatDeskCopy }) {
+export function KlyntiaFeatures({ copy }: { copy: KlyntiaCopy }) {
   return (
     <section className="features-section section-anchor" id="funcionalidades">
       <div className="site-container">
@@ -42,7 +42,7 @@ export function ChatDeskFeatures({ copy }: { copy: ChatDeskCopy }) {
   )
 }
 
-export function ChatDeskIntegrations({ copy }: { copy: ChatDeskCopy }) {
+export function KlyntiaIntegrations({ copy }: { copy: KlyntiaCopy }) {
   return (
     <section className="integrations-band section-anchor" id="canais" aria-labelledby="integrations-heading">
       <div className="site-container integrations-layout">

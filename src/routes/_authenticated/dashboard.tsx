@@ -8,10 +8,10 @@ import { PromoGenerator } from "@/components/promo-generator";
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
-      { title: "Painel — ChatDesk AI" },
-      { name: "description", content: "Gerir o seu perfil e aceder às ferramentas da ChatDesk AI." },
-      { property: "og:title", content: "Painel — ChatDesk AI" },
-      { property: "og:description", content: "O seu painel ChatDesk AI." },
+      { title: "Painel — Klyntia AI" },
+      { name: "description", content: "Gerir o seu perfil e aceder às ferramentas da Klyntia AI." },
+      { property: "og:title", content: "Painel — Klyntia AI" },
+      { property: "og:description", content: "O seu painel Klyntia AI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -40,9 +40,10 @@ function Dashboard() {
         setName(data.display_name ?? ""); setCompany(data.company ?? ""); setAffiliate(data.is_affiliate);
       } else {
         const meta = user.user_metadata ?? {};
-        const isAff = meta["affiliate"] === true || sessionStorage.getItem("cd_affiliate") === "1";
+        const isAff = meta["affiliate"] === true || (sessionStorage.getItem("klyntia-affiliate") ?? sessionStorage.getItem("cd_affiliate")) === "1";
         const display = (meta["full_name"] || meta["name"] || (user.email ?? "").split("@")[0]) as string;
         await supabase.from("profiles").insert({ id: user.id, display_name: display, is_affiliate: isAff });
+        sessionStorage.removeItem("klyntia-affiliate");
         sessionStorage.removeItem("cd_affiliate");
         setName(display); setAffiliate(isAff);
       }

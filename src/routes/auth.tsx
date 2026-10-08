@@ -19,10 +19,10 @@ export const Route = createFileRoute("/auth")({
   },
   head: () => ({
     meta: [
-      { title: "Entrar — ChatDesk AI" },
-      { name: "description", content: "Entre ou crie a sua conta ChatDesk AI com email ou Google." },
-      { property: "og:title", content: "Entrar — ChatDesk AI" },
-      { property: "og:description", content: "Entre ou crie a sua conta ChatDesk AI." },
+      { title: "Entrar — Klyntia AI" },
+      { name: "description", content: "Entre ou crie a sua conta Klyntia AI com email ou Google." },
+      { property: "og:title", content: "Entrar — Klyntia AI" },
+      { property: "og:description", content: "Entre ou crie a sua conta Klyntia AI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -87,7 +87,7 @@ function AuthPage() {
 
   async function google() {
     setMsg(null);
-    if (affiliate) sessionStorage.setItem("cd_affiliate", "1");
+    if (affiliate) sessionStorage.setItem("klyntia-affiliate", "1");
     const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: `${window.location.origin}/auth` });
     if (r.error) setMsg({ ok: false, text: pt ? "Não foi possível entrar com o Google." : "Google sign-in failed." });
   }
