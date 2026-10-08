@@ -1,8 +1,8 @@
 import { ArrowUpRight, Plus } from "lucide-react"
-import type { ChatDeskCopy, Locale } from "@/components/chatdesk-copy"
-import { getContactHref } from "@/components/chatdesk-copy"
+import type { KlyntiaCopy, Locale } from "@/components/klyntia-copy"
+import { getContactHref } from "@/components/klyntia-copy"
 
-export function ChatDeskProcess({ copy }: { copy: ChatDeskCopy }) {
+export function KlyntiaProcess({ copy }: { copy: KlyntiaCopy }) {
   return (
     <section className="workflow-section section-anchor" id="como-funciona" aria-labelledby="workflow-heading">
       <div className="site-container">
@@ -28,7 +28,7 @@ export function ChatDeskProcess({ copy }: { copy: ChatDeskCopy }) {
   )
 }
 
-export function ChatDeskFaq({ copy, locale }: { copy: ChatDeskCopy; locale: Locale }) {
+export function KlyntiaFaq({ copy, locale }: { copy: KlyntiaCopy; locale: Locale }) {
   return (
     <section className="faq-section section-anchor" id="faq" aria-labelledby="faq-heading">
       <div className="site-container faq-layout">

@@ -40,7 +40,7 @@ export function PromoGenerator() {
     <div className="mt-3 grid md:grid-cols-2 gap-3">
       <form onSubmit={submit} className="card-line rounded-[14px] p-5 space-y-3">
         <label className="block text-[12px] text-sage">{pt ? "Produto ou oferta" : "Product or offer"}
-          <textarea rows={4} maxLength={1500} value={product} onChange={(e) => setProduct(e.target.value)} placeholder={pt ? "Ex.: ChatDesk AI Pro — atendimento automático no WhatsApp para lojas online, 14 dias grátis" : "E.g. ChatDesk AI Pro — automated WhatsApp support for online stores, 14-day trial"} className={`${input} mt-1`} />
+          <textarea rows={4} maxLength={1500} value={product} onChange={(e) => setProduct(e.target.value)} placeholder={pt ? "Ex.: Klyntia AI Pro — atendimento automático no WhatsApp para lojas online, 14 dias grátis" : "E.g. Klyntia AI Pro — automated WhatsApp support for online stores, 14-day trial"} className={`${input} mt-1`} />
         </label>
         <label className="block text-[12px] text-sage">{pt ? "Canal de divulgação" : "Promotion channel"}
           <input maxLength={300} value={channel} onChange={(e) => setChannel(e.target.value)} placeholder={pt ? "Ex.: Instagram, email, grupo de WhatsApp" : "E.g. Instagram, email, WhatsApp group"} className={`${input} mt-1`} />
@@ -58,7 +58,7 @@ export function PromoGenerator() {
           <p className="font-semibold text-[14px]">{pt ? "Textos gerados" : "Generated texts"}</p>
           {out && <button onClick={() => { navigator.clipboard.writeText(out); setCopied(true); }} className="btn-line text-[11px]">{copied ? (pt ? "Copiado" : "Copied") : (pt ? "Copiar" : "Copy")}</button>}
         </div>
-        {busy && <p className="mt-4 text-[12px] font-mono text-sage cd-blink">{pt ? "A escrever…" : "Writing…"}</p>}
+        {busy && <p className="mt-4 text-[12px] font-mono text-sage klyntia-blink">{pt ? "A escrever…" : "Writing…"}</p>}
         {!busy && !out && <p className="mt-4 text-[12px] text-sage">{pt ? "Descreva o produto e o canal para receber 3 textos prontos a publicar." : "Describe the product and channel to get 3 ready-to-post texts."}</p>}
         {out && <p className="mt-4 text-[13px] whitespace-pre-wrap leading-relaxed">{out}</p>}
       </div>

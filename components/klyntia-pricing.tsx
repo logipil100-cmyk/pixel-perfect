@@ -1,13 +1,13 @@
 import { ArrowRight } from "lucide-react"
-import type { ChatDeskCopy, Locale } from "@/components/chatdesk-copy"
-import { getSalesContactHref } from "@/components/chatdesk-copy"
+import type { KlyntiaCopy, Locale } from "@/components/klyntia-copy"
+import { getSalesContactHref } from "@/components/klyntia-copy"
 
-interface ChatDeskPricingProps {
-  copy: ChatDeskCopy
+interface KlyntiaPricingProps {
+  copy: KlyntiaCopy
   locale: Locale
 }
 
-export function ChatDeskPricing({ copy, locale }: ChatDeskPricingProps) {
+export function KlyntiaPricing({ copy, locale }: KlyntiaPricingProps) {
   return (
     <section className="pricing-section section-anchor" id="planos" aria-labelledby="pricing-heading">
       <div className="site-container">

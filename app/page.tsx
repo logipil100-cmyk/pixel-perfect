@@ -1,6 +1,6 @@
-import { ChatDeskLanding } from "@/components/chatdesk-landing"
+import { KlyntiaLanding } from "@/components/klyntia-landing"
 
 export default function Page() {
-  return <ChatDeskLanding />
+  return <KlyntiaLanding />
 }
 

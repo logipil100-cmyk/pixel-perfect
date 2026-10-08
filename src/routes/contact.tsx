@@ -6,10 +6,10 @@ import { useT } from "@/lib/i18n";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contato — ChatDesk AI" },
-      { name: "description", content: "Fale com um especialista da ChatDesk AI. Resposta em menos de um dia útil." },
-      { property: "og:title", content: "Contato — ChatDesk AI" },
-      { property: "og:description", content: "Fale com a equipa ChatDesk AI." },
+      { title: "Contato — Klyntia AI" },
+      { name: "description", content: "Fale com um especialista da Klyntia AI. Resposta em menos de um dia útil." },
+      { property: "og:title", content: "Contato — Klyntia AI" },
+      { property: "og:description", content: "Fale com a equipa Klyntia AI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

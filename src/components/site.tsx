@@ -7,8 +7,8 @@ import { useSessionUser } from "@/hooks/use-session";
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2">
-      <span className="size-6 bg-ember rounded-[6px] grid place-items-center text-paper font-bold text-[11px] leading-none">C</span>
-      <span className="font-display font-bold text-[15px] tracking-tight">ChatDesk</span>
+      <span className="size-6 bg-ember rounded-[6px] grid place-items-center text-paper font-bold text-[11px] leading-none" aria-hidden="true">K</span>
+      <span className="font-display font-bold text-[15px] ">Klyntia</span>
     </Link>
   );
 }
@@ -61,7 +61,7 @@ export function SiteFooter() {
         <div className="mt-5 card-line rounded-[14px] p-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
             <p className="font-semibold text-[14px]">{lang === "pt" ? "Programa de afiliados" : "Affiliate program"}</p>
-            <p className="text-[12px] text-sage">{lang === "pt" ? "Indique a ChatDesk AI e ganhe comissões." : "Refer ChatDesk AI and earn commissions."}</p>
+            <p className="text-[12px] text-sage">{lang === "pt" ? "Indique a Klyntia AI e ganhe comissões." : "Refer Klyntia AI and earn commissions."}</p>
           </div>
           <Link to="/affiliates" className="btn-ember text-[12px] text-center">{lang === "pt" ? "Criar conta de afiliado" : "Create affiliate account"}</Link>
         </div>
@@ -70,7 +70,8 @@ export function SiteFooter() {
           <Link to="/pricing">{t.nav.pricing}</Link>
           <Link to="/contact">{t.nav.contact}</Link>
         </div>
-        <p className="mt-6 text-[11px] font-mono text-sage">© 2026 ChatDesk AI · suporte@chatdesk.ai</p>
+        <p className="mt-6 text-[11px] font-mono text-sage">{lang === "pt" ? "© 2026 Klyntia. Todos os direitos reservados." : "© 2026 Klyntia. All rights reserved."}</p>
+        <a href="mailto:support@klyntia.com" className="mt-2 inline-block text-[12px] text-sage">support@klyntia.com</a>
       </div>
     </footer>
   );
@@ -114,14 +115,14 @@ export function DemoInbox() {
   return (
     <div className="bg-paper text-ink rounded-2xl shadow-[0_0_0_1px_var(--border),0_20px_50px_-20px_var(--ink)] p-3 md:p-5">
       <div className="flex items-center justify-between border-b pb-2 mb-3">
-        <span className="text-[11px] font-semibold">{t.demo.ch}</span>
+        <span className="text-[11px] font-semibold">Klyntia AI · {t.demo.ch}</span>
         <span className="text-[10px] font-mono text-sage">online</span>
       </div>
       <div className="space-y-2 text-[12px] md:text-sm">
         <div className="bg-muted rounded-lg rounded-tl-sm px-3 py-2 max-w-[80%]">{t.demo.m1}</div>
         <div className="bg-accent shadow-[0_0_0_1px_var(--accent)] rounded-lg rounded-tr-sm px-3 py-2 max-w-[85%] ml-auto">{t.demo.m2}</div>
         <div className="bg-muted rounded-lg rounded-tl-sm px-3 py-2 max-w-[70%]">{t.demo.m3}</div>
-        <div className="bg-accent rounded-lg rounded-tr-sm px-3 py-2 w-fit ml-auto flex items-center gap-1.5">{t.demo.m4} <span className="cd-blink text-ember">▍</span></div>
+        <div className="bg-accent rounded-lg rounded-tr-sm px-3 py-2 w-fit ml-auto flex items-center gap-1.5">{t.demo.m4} <span className="klyntia-blink text-ember">▍</span></div>
       </div>
       <div className="mt-3 pt-2 border-t flex items-center justify-between">
         <span className="text-[10px] font-mono text-sage">{t.demo.foot}</span>

@@ -6,9 +6,9 @@ import { useT } from "@/lib/i18n";
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: "Nova palavra-passe — ChatDesk AI" },
-      { name: "description", content: "Defina uma nova palavra-passe para a sua conta ChatDesk AI." },
-      { property: "og:title", content: "Nova palavra-passe — ChatDesk AI" },
+      { title: "Nova palavra-passe — Klyntia AI" },
+      { name: "description", content: "Defina uma nova palavra-passe para a sua conta Klyntia AI." },
+      { property: "og:title", content: "Nova palavra-passe — Klyntia AI" },
       { property: "og:description", content: "Defina uma nova palavra-passe." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

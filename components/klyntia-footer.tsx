@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react"
-import { getAffiliateContactHref, type ChatDeskCopy, type Locale } from "@/components/chatdesk-copy"
+import { getAffiliateContactHref, type KlyntiaCopy, type Locale } from "@/components/klyntia-copy"
 
-export function ChatDeskFooter({ copy, locale }: { copy: ChatDeskCopy; locale: Locale }) {
+export function KlyntiaFooter({ copy, locale }: { copy: KlyntiaCopy; locale: Locale }) {
   return (
     <footer className="site-footer" id="contato">
       <div className="site-container">
@@ -20,7 +20,7 @@ export function ChatDeskFooter({ copy, locale }: { copy: ChatDeskCopy; locale: L
         <div className="footer-main">
           <a className="brand footer-brand" href="#inicio" aria-label={copy.header.homeLabel}>
             <span className="brand-mark" aria-hidden="true" />
-            <span className="brand-name">ChatDesk<span className="brand-ai">AI</span></span>
+            <span className="brand-name">Klyntia<span className="brand-ai">AI</span></span>
           </a>
           <span className="footer-note">{copy.footer.footerNote}</span>
           <a className="footer-email" href={`mailto:${copy.footer.email}`}>
@@ -28,7 +28,7 @@ export function ChatDeskFooter({ copy, locale }: { copy: ChatDeskCopy; locale: L
           </a>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 ChatDesk AI. {copy.footer.copyright}</span>
+          <span>© 2026 Klyntia. {copy.footer.copyright}</span>
           <nav className="footer-links" aria-label={copy.header.navigationLabel}>
             <a href="#funcionalidades">{copy.footer.featuresLink}</a>
             <a href="#planos">{copy.footer.plansLink}</a>
