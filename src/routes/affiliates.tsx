@@ -109,7 +109,7 @@ function AffiliatesPage() {
             ))}
             {err && <p className="text-[12px] text-destructive" role="alert">{err}</p>}
             <button disabled={busy} className="btn-ember w-full text-[13px]">{busy ? "…" : pt ? "Criar conta de afiliado" : "Create affiliate account"}</button>
-            <button type="button" onClick={google} className="btn-line w-full text-[13px]">{pt ? "Continuar com Google" : "Continue with Google"}</button>
+            <button type="button" onClick={google} className="btn-line w-full text-[13px] flex items-center justify-center gap-2"><GoogleIcon /> {pt ? "Continuar com o Google" : "Continue with Google"}</button>
             <p className="text-[12px] text-sage text-center">
               {pt ? "Já tem conta?" : "Have an account?"} <Link to="/auth" className="underline">{pt ? "Entrar" : "Sign in"}</Link>
             </p>

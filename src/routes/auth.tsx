@@ -121,7 +121,7 @@ function AuthPage() {
         ) : (
           <>
             <button onClick={google} className="btn-line mt-6 w-full flex items-center justify-center gap-2">
-              <span className="font-bold">G</span> {pt ? "Continuar com o Google" : "Continue with Google"}
+              <GoogleIcon /> {pt ? "Continuar com o Google" : "Continue with Google"}
             </button>
             <div className="my-5 flex items-center gap-3 text-[11px] font-mono text-sage"><span className="h-px flex-1 bg-border" />{pt ? "ou" : "or"}<span className="h-px flex-1 bg-border" /></div>
             <form onSubmit={submit} className="space-y-3">
