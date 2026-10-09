@@ -16,6 +16,7 @@ import { LangProvider } from "@/lib/i18n";
 import { SiteHeader, SiteFooter } from "@/components/site";
 import { ChatWidget } from "@/components/chat-widget";
 import { CookieBanner } from "@/components/cookie-banner";
+import { AffiliateTracker } from "@/components/affiliate-tracker";
 
 function NotFoundComponent() {
   return (
@@ -131,6 +132,7 @@ function RootComponent() {
         <SiteFooter />
         <ChatWidget />
         <CookieBanner />
+        <AffiliateTracker />
       </LangProvider>
     </QueryClientProvider>
   );

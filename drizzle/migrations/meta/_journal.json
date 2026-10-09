@@ -8,6 +8,13 @@
       "when": 1791524298916,
       "tag": "0000_contact_messages",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791524697323,
+      "tag": "0001_affiliate_finance",
+      "breakpoints": true
     }
   ]
 }
