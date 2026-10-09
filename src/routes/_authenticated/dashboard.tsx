@@ -4,6 +4,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { useT } from "@/lib/i18n";
 import { PromoGenerator } from "@/components/promo-generator";
+import { AffiliateFinance } from "@/components/affiliate-finance";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
@@ -95,6 +96,8 @@ function Dashboard() {
 
         {affiliate && (
           <>
+            <h2 className="mt-10 font-semibold">{pt ? "Financeiro de afiliado" : "Affiliate finance"}</h2>
+            <AffiliateFinance />
             <h2 className="mt-10 font-semibold">{pt ? "Gerador de textos promocionais" : "Promo text generator"}</h2>
             <PromoGenerator />
           </>
