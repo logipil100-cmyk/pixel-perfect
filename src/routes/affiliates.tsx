@@ -4,6 +4,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { useT } from "@/lib/i18n";
+import { GoogleIcon } from "@/components/google-icon";
 
 export const Route = createFileRoute("/affiliates")({
   head: () => ({
