@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 import { useT } from "@/lib/i18n";
 import { useSessionUser } from "@/hooks/use-session";
+import { GoogleIcon } from "@/components/google-icon";
 
 type Mode = "in" | "up" | "forgot";
 

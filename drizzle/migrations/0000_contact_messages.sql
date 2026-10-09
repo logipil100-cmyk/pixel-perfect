@@ -6,6 +6,5 @@ create table if not exists public.contact_messages (
   lang text not null default 'pt' check (lang in ('pt', 'en')),
   created_at timestamptz not null default now()
 );
-
--- Only the server (service role) writes or reads these rows; no public policies.
+grant all on public.contact_messages to service_role;
 alter table public.contact_messages enable row level security;
