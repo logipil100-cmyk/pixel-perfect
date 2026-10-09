@@ -14,6 +14,113 @@ export type Database = {
   }
   public: {
     Tables: {
+      affiliate_clicks: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          visitor_id: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          visitor_id: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          visitor_id?: string
+        }
+        Relationships: []
+      }
+      affiliate_commissions: {
+        Row: {
+          affiliate_user_id: string
+          amount_cents: number
+          created_at: string
+          id: string
+          payout_id: string | null
+          referred_user_id: string
+          status: string
+        }
+        Insert: {
+          affiliate_user_id: string
+          amount_cents: number
+          created_at?: string
+          id?: string
+          payout_id?: string | null
+          referred_user_id: string
+          status?: string
+        }
+        Update: {
+          affiliate_user_id?: string
+          amount_cents?: number
+          created_at?: string
+          id?: string
+          payout_id?: string | null
+          referred_user_id?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "affiliate_commissions_payout_id_fkey"
+            columns: ["payout_id"]
+            isOneToOne: false
+            referencedRelation: "affiliate_payouts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      affiliate_links: {
+        Row: {
+          code: string
+          created_at: string
+          user_id: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          user_id: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      affiliate_payouts: {
+        Row: {
+          affiliate_user_id: string
+          amount_cents: number
+          created_at: string
+          details: string
+          id: string
+          method: string
+          status: string
+        }
+        Insert: {
+          affiliate_user_id: string
+          amount_cents: number
+          created_at?: string
+          details: string
+          id?: string
+          method: string
+          status?: string
+        }
+        Update: {
+          affiliate_user_id?: string
+          amount_cents?: number
+          created_at?: string
+          details?: string
+          id?: string
+          method?: string
+          status?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           created_at: string
